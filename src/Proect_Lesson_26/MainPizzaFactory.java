@@ -1,5 +1,7 @@
 package Proect_Lesson_26;
 
+import java.util.Scanner;
+
 public class MainPizzaFactory {
     /*
      проект " Pizza Factory" .
@@ -23,4 +25,43 @@ public class MainPizzaFactory {
       в зависимости от выбора
          заказчика.(Возможно, стоит использовать в этом случае Switch)
      */
+    public static void main(String[] args) {
+        PizzaFactory factory = new PizzaFactory(); //  создаем фабрику
+        Pizza salami = factory.createPizza("1"); // клиент заказывает пиццу
+//         salami.orderPizza();                          // запускаем метод приготовления пицы
+
+        Pizza mozarella = factory.createPizza("2");
+//         mozarella.orderPizza();
+
+        Pizza hawaii = factory.createPizza("3");
+//        hawaii.orderPizza();
+
+        //   Pizza wrongChoice = factory.createPizza("5");  при неправильном вводе
+        //   wrongChoice.orderPizza();
+
+        System.out.println("------With scanner-----------------");
+        Scanner scanner = new Scanner(System.in);
+        do {
+
+            System.out.println("Pizza choice: Enter 1 for Salami, 2 for Mozarella, 3 for Hawaii");
+            String pizzaChoice = scanner.nextLine(); // сканер делает выбор
+
+            Pizza newPizza = factory.createPizza(pizzaChoice);
+
+            while (newPizza == null) { //  отлавливаем неправильный выбор
+                System.out.println("You have made the wrong choice. Please Enter 1 for" +
+                        " Salami, 2 for Mozarella, 3 for Hawaii");
+                pizzaChoice = scanner.nextLine();
+                newPizza = factory.createPizza(pizzaChoice);
+            }
+            newPizza.orderPizza();
+
+            System.out.println("Do you want to order another pizza? press no if not/ any other key if yes");
+
+        } while (!scanner.nextLine().equalsIgnoreCase("no")); // сравнивам с помощю метода ответ
+        // если пользователь вводит no - true, но нам нужно false, для этого ставим знак не(!)
+        System.out.println("Thank you for your order ! We hope to see you again soon");
+
+
+    }
 }
