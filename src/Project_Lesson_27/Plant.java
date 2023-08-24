@@ -18,7 +18,7 @@ public abstract class Plant {
     public double getHeight() {
         return height;
     }
-    private int getAge() {
+    public int getAge() {
         return age;
     }
 

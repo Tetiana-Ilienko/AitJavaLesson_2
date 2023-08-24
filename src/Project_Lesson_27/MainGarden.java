@@ -59,21 +59,22 @@ public class MainGarden {
                 System.out.println("******************");
             }
         }
+        for (Plant plant : plants) {
+            System.out.println(plant.getName()+ " has height: " + plant.getHeight() +" and  is " +
+                    plant.getAge() + " years old");
+
+        }
     }
 
     public static void main(String[] args) {
 
-        Tree plant1 = new Tree("Pine",100,10);
-        Tree plant2 = new Tree("Oak",250,15);
-        Flower plant3 = new Flower("Tulip", 10 ,1);
-        Flower plant4 = new Flower("Lavanda", 15 ,5);
-        Plant[] plants = {plant1,plant2,plant3,plant4};
+        Tree plant1 = new Tree("Pine", 100, 10);
+        Tree plant2 = new Tree("Oak", 250, 15);
+        Flower plant3 = new Flower("Tulip", 10, 1);
+        Flower plant4 = new Flower("Lavanda", 15, 5);
+        Plant[] plants = {plant1, plant2, plant3, plant4};
 
-        growPlants(plants,5);
-
-
-
-
+        growPlants(plants, 5);
 
 
     }
