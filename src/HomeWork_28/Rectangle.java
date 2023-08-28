@@ -3,13 +3,17 @@ package HomeWork_28;
 public class Rectangle implements Shape {
 
    private double length;
-    private double height;
-    private double pr;
-    private double sr;
+    double height;
+    double pr;
+    double sr;
 
     public Rectangle(double length, double height) {
         this.length = length;
         this.height = height;
+    }
+
+    public double getSr() {
+        return sr;
     }
 
     @Override
@@ -18,10 +22,6 @@ public class Rectangle implements Shape {
         System.out.println("Perimeter of the rectangle is: " + pr);
 
 
-    }
-
-    public double getSr() {
-        return sr;
     }
 
     @Override

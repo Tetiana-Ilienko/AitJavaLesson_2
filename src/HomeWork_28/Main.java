@@ -10,15 +10,32 @@ package HomeWork_28;
 
 
 public class Main {
-    public static void summaOfSquareShape(Rectangle rectangle, Circle circle){
-      double summaOf = rectangle.getSr() + circle.getSc();
-        System.out.printf("Summa of rectangle and circle is : %.2f",summaOf);
+    public static void summaOfSquareShape(Rectangle rectangle, Circle circle) {
+        double summaOf = rectangle.getSr() + circle.getSc();
+        System.out.printf("Summa of rectangle and circle is : %.2f", summaOf);
         System.out.println();
 
     }
 
-    public static void main(String[] args) {
+    public static void summaOfSquareShape(Rectangle[] rectangles, Circle[] circles) {
+        double summaOf = 0;
+        for (int i = 0; i < rectangles.length; i++) {
+            summaOf = rectangles[i].getSr() + circles[i].getSc();
+            System.out.printf("Summa of rectangle and circle is : %.2f", summaOf);
+            System.out.println();
+        }
 
+    }
+//  более оптимизированный метод. Можно использовать, если методы в интерфейсе возвращают значение
+ /*   public static void summaOfSquareShape(Shape[] shapes) {
+        double result = 0;
+        for (Shape shape : shapes) {
+            result  + = shape.isSquare();
+        }
+    }
+*/
+
+    public static void main(String[] args) {
 
 
         Rectangle rectangle1 = new Rectangle(5, 6);
@@ -45,7 +62,8 @@ public class Main {
             System.out.println("*********************");
         }
 
-        summaOfSquareShape(rectangle1,circle1);
+        //summaOfSquareShape(rectangle1,circle1);
+        summaOfSquareShape(rectangles, circles);
 
     }
 }

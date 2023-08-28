@@ -2,7 +2,7 @@ package HomeWork_28;
 
 public class Circle implements Shape {
     private double radius;
-    private  static double PI = Math.PI;
+    double PI = Math.PI;
     private double pc;
     private double sc;
 
@@ -17,7 +17,7 @@ public class Circle implements Shape {
 
     @Override
     public void isPerimeter() {
-       pc= 2*PI*radius;
+       pc = 2*PI*radius;
         System.out.printf("Perimeter of the circle is : %.2f", pc);
         System.out.println();
 
