@@ -1,5 +1,7 @@
 package HomeWork_30;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -29,8 +31,32 @@ f(n) = n + sqrt(n)  --> f(n) = n;
     boolean isAnagram( String str1, String str2)
 
  */
+    public static boolean isAnagram(String str1, String str2){
+        if (str1.length()!= str2.length()){
+            return false;
+        }
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
 
-    public static boolean isAnagram(String str1, String str2) {
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+        return Arrays.equals(chars1,chars2);
+
+//        ---------------  2 вариант
+        for (int i = 0; i < chars1.length; i++) {
+            if (chars1[i]!=chars2[i]){
+                return false;
+            }
+            return true;
+//        -----------------------
+        }
+
+
+    }
+
+
+
+    public static boolean isPolligram(String str1, String str2) { // если поллиграмма
         StringBuilder sb1 = new StringBuilder(str1);
         String str = new String(sb1.reverse());
         if (str2.equals(str)) { // можно взять метод сравнивания строк без учета регистра
