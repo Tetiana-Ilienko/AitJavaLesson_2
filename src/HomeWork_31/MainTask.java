@@ -18,18 +18,21 @@ public class MainTask {
 
 
     }
-    public static int pattern(String str, String strP){
-        int count=0;
-        int index = str.indexOf(strP,0); // возвращает индекс первого вхождения в строку ( ---> 2)
-        while (index != -1){ // ( 2!= -1) выполняем цикл
+
+    public static int pattern(String str, String strP) {
+        int count = 0;
+        int index = str.indexOf(strP, 0); // возвращает индекс первого вхождения в строку ( ---> 2)
+        while (index != -1) { // ( 2!= -1) выполняем цикл
             count++;         // = 0+1
-            index = str.indexOf(strP,index +1); // вызываем метод от индекса (2 +1), если совпадений не найдено
+            index = str.indexOf(strP, index + str.length()); // вызываем метод от индекса (2 +1),
+            // если совпадений не найдено
             // вернется -1. Цикл остановитьсяю
         }
 
         return count;// возвращаем счетчик
     }
-// ************ вариант для символов*****************
+
+    // ************ вариант для символов *****************
     public static int pattern(String str, char chr) {
         char[] chars = str.toCharArray();
         int count = 0;
@@ -40,6 +43,24 @@ public class MainTask {
         }
         return count;
 
+    }
+
+    // ************ вариант 2   *****************
+    public static int isPattern(String str, String pattern) {
+        int count = 0;
+        int lastIndex = str.lastIndexOf(pattern);// идем с конца
+        for (int i = 0; i < str.length(); i++) { // вошли в цикл
+            if (lastIndex != -1) {
+                count++;                         // увеличили счетчик
+                lastIndex = str.lastIndexOf(pattern, lastIndex - pattern.length()); // отступаем на длину
+                // паттерна, пока не вернется -1
+            }
+
+        }
+        return count;
+
 
     }
+
+
 }

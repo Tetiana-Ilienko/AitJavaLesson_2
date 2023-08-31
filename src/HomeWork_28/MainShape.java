@@ -5,12 +5,13 @@ package HomeWork_28;
  реализующие этот интерфейс.
 
 В методе main создать несколько фигур и вывести на печать площадь и периметр каждой.
-Написать метод, вычисляющий общую площадь фигур нескольких видов, т.е. если площадь прямоугольника = 100, круга = 50, то общая площадь 150
+Написать метод, вычисляющий общую площадь фигур нескольких видов, т.е. если площадь прямоугольника = 100, круга = 50,
+то общая площадь 150
  */
 
 
-public class Main {
-    public static void summaOfSquareShape(Rectangle rectangle, Circle circle) {
+public class MainShape {
+   /* public static void summaOfSquareShape(Rectangle rectangle, Circle circle) {
         double summaOf = rectangle.getSr() + circle.getSc();
         System.out.printf("Summa of rectangle and circle is : %.2f", summaOf);
         System.out.println();
@@ -25,15 +26,18 @@ public class Main {
             System.out.println();
         }
 
-    }
-//  более оптимизированный метод. Можно использовать, если методы в интерфейсе возвращают значение
- /*   public static void summaOfSquareShape(Shape[] shapes) {
+    */
+
+
+    //  более оптимизированный метод. Можно использовать, если методы в интерфейсе возвращают значение
+    public static double summaOfSquareShape(Shape[] shapes) {
         double result = 0;
         for (Shape shape : shapes) {
-            result  + = shape.isSquare();
+            result += shape.isSquare();
         }
+        return result;
     }
-*/
+
 
     public static void main(String[] args) {
 
@@ -45,25 +49,39 @@ public class Main {
         Circle circle2 = new Circle(3.5);
         Circle circle3 = new Circle(7);
 
+
+
         Rectangle[] rectangles = {rectangle1, rectangle2, rectangle3};
         Circle[] circles = {circle1, circle2, circle3};
 
 
         for (Rectangle rectangle : rectangles) {
-            rectangle.isPerimeter();
-            rectangle.isSquare();
+            System.out.println(rectangle.isPerimeter());
+            System.out.println(rectangle.isSquare());
             System.out.println("*********************");
         }
         System.out.println("\n");
 
         for (Circle circle : circles) {
-            circle.isPerimeter();
-            circle.isSquare();
+            System.out.println(circle.isPerimeter());
+            System.out.println(circle.isSquare());
             System.out.println("*********************");
         }
 
-        //summaOfSquareShape(rectangle1,circle1);
-        summaOfSquareShape(rectangles, circles);
+//*************************************************************************
+        System.out.println("++++++++++++++++++++++++++++");
+        Shape rectangle = new Rectangle(2, 3);
+        Shape circle = new Circle(2);
+
+        System.out.println(rectangle.isPerimeter());
+        System.out.println(rectangle.isSquare());
+
+        System.out.println(circle.isPerimeter());
+        System.out.println(circle.isSquare());
+
+        Shape[] shapes = {rectangle1,circle1};
+
+        System.out.println("Summ: " + summaOfSquareShape(shapes));
 
     }
 }

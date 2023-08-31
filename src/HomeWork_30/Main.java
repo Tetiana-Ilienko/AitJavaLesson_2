@@ -42,14 +42,14 @@ f(n) = n + sqrt(n)  --> f(n) = n;
         Arrays.sort(chars2);
         return Arrays.equals(chars1,chars2);
 
-//        ---------------  2 вариант
-        for (int i = 0; i < chars1.length; i++) {
-            if (chars1[i]!=chars2[i]){
-                return false;
-            }
-            return true;
-//        -----------------------
-        }
+////        ---------------  2 вариант
+//        for (int i = 0; i < chars1.length; i++) {
+//            if (chars1[i]!=chars2[i]){
+//                return false;
+//            }
+//            return true;
+////        -----------------------
+//        }
 
 
     }
