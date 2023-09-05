@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class WeightComparatorTest {
+class WeightComparatorTest {// можно было тестировать все компараторы в одном классе.
     Animal animal1 = new Animal("Wolf", 60, "weight");
     Animal animal2 = new Animal("Bear", 150, "braun");
     Animal animal3 = new Animal("Fox", 45, "orange");

@@ -1,6 +1,8 @@
-package HomeWork_33;
+package HomeWork_35;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Objects;
 
 public class Main {
     /*
@@ -37,47 +39,60 @@ public class Main {
         Animal[] animals = {animal1, animal2, animal3, animal4, animal5};
         for (Animal animal : animals) {
             System.out.println((animal));
-        }
-        System.out.println("**********************");
-        Arrays.sort(animals);
-        for (Animal animal : animals) {
-            System.out.println((animal));
-        }
-        /*
-         сортировка по имени -->>
-         Animal_5 {name= Anaconda, weight= 100, color= yellow}
-         Animal_2 {name= Bear, weight= 150, color= braun}
-         Animal_4 {name= Elephant, weight= 700, color= grey}
-         Animal_3 {name= Fox, weight= 45, color= orange}
-         Animal_1 {name= Wolf, weight= 60, color= weight}
-        */
-        System.out.println("**********************");
-        Arrays.sort(animals, new WeightComparator()); // пердаем массив, создаем и пердаем компаратор
-        for (Animal animal : animals) {
-            System.out.println((animal));
-        }
-        /*
-        Animal_3 {name= Fox, weight= 45, color= orange}
-        Animal_1 {name= Wolf, weight= 60, color= weight}
-        Animal_5 {name= Anaconda, weight= 100, color= yellow}
-        Animal_2 {name= Bear, weight= 150, color= braun}
-        Animal_4 {name= Elephant, weight= 700, color= grey}
-         */
-        System.out.println("**********************");
-        Arrays.sort(animals,new LastLetterComparator());
-        for (Animal animal : animals) {
-            System.out.println((animal.getName())); // так как на печать требуется вывести только имя animal.getName()
-        }
-        /*
-        Anaconda
-        Wolf
-        Bear
-        Elephant
-        Fox
 
-         */
+        }
+
+
+        Comparator<Animal> NameComparator = (an1,an2)->{
+            return an1.getName().compareTo(an2.getName());
+        };
+        System.out.println("\n****** NameComparator ********");
+        Arrays.sort(animals,NameComparator);
+        for (Animal animal : animals) {
+            System.out.println((animal));
+        }
+
+
+        Comparator<Animal> WeightComparator = (an1,an2)->{
+            return Integer.compare(an1.getWeight(),an2.getWeight());
+        };
+        System.out.println("\n****** WeightComparator ********");
+        Arrays.sort(animals,WeightComparator);
+        for (Animal animal : animals) {
+            System.out.println((animal));
+        }
+
+        Comparator<Animal> LastLetterComparator = (an1,an2)->{
+            String str1= an1.getName();
+            String str2= an2.getName();
+
+            char lastLetter1 =str1.charAt(str1.length()-1);
+            char lastLetter2 =str2.charAt(str2.length()-1);
+
+
+            return Character.compare(lastLetter1,lastLetter2);
+        };
+        System.out.println("\n****** LastLetterComparator ********");
+        Arrays.sort(animals,LastLetterComparator);
+        for (Animal animal : animals) {
+            System.out.println((animal.getName()));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     }
+
 }
