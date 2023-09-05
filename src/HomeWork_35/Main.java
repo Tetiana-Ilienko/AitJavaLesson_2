@@ -72,7 +72,7 @@ public class Main {
 
             return Character.compare(lastLetter1,lastLetter2);
         };
-        System.out.println("\n****** LastLetterComparator ********");
+        System.out.println("\n******* LastLetterComparator ********");
         Arrays.sort(animals,lastLetterComparator);
         for (Animal animal : animals) {
             System.out.println((animal.getName()));
