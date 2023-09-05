@@ -43,9 +43,8 @@ public class Main {
         }
 
 
-        Comparator<Animal> nameComparator = (an1,an2)->{
-            return an1.getName().compareTo(an2.getName());
-        };
+        Comparator<Animal> nameComparator = (an1,an2)-> an1.getName().compareTo(an2.getName());
+
         System.out.println("\n****** NameComparator ********");
         Arrays.sort(animals,nameComparator);
         for (Animal animal : animals) {
@@ -53,9 +52,8 @@ public class Main {
         }
 
 
-        Comparator<Animal> weightComparator = (an1,an2)->{
-            return Integer.compare(an1.getWeight(),an2.getWeight());
-        };
+        Comparator<Animal> weightComparator = (an1,an2)-> Integer.compare(an1.getWeight(),an2.getWeight());
+
         System.out.println("\n****** WeightComparator ********");
         Arrays.sort(animals,weightComparator);
         for (Animal animal : animals) {
