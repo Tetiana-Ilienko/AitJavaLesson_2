@@ -2,7 +2,7 @@ package HomeWork_35;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
+
 
 public class Main {
     /*
@@ -43,26 +43,26 @@ public class Main {
         }
 
 
-        Comparator<Animal> NameComparator = (an1,an2)->{
+        Comparator<Animal> nameComparator = (an1,an2)->{
             return an1.getName().compareTo(an2.getName());
         };
         System.out.println("\n****** NameComparator ********");
-        Arrays.sort(animals,NameComparator);
+        Arrays.sort(animals,nameComparator);
         for (Animal animal : animals) {
             System.out.println((animal));
         }
 
 
-        Comparator<Animal> WeightComparator = (an1,an2)->{
+        Comparator<Animal> weightComparator = (an1,an2)->{
             return Integer.compare(an1.getWeight(),an2.getWeight());
         };
         System.out.println("\n****** WeightComparator ********");
-        Arrays.sort(animals,WeightComparator);
+        Arrays.sort(animals,weightComparator);
         for (Animal animal : animals) {
             System.out.println((animal));
         }
 
-        Comparator<Animal> LastLetterComparator = (an1,an2)->{
+        Comparator<Animal> lastLetterComparator = (an1,an2)->{
             String str1= an1.getName();
             String str2= an2.getName();
 
@@ -73,7 +73,7 @@ public class Main {
             return Character.compare(lastLetter1,lastLetter2);
         };
         System.out.println("\n****** LastLetterComparator ********");
-        Arrays.sort(animals,LastLetterComparator);
+        Arrays.sort(animals,lastLetterComparator);
         for (Animal animal : animals) {
             System.out.println((animal.getName()));
         }
