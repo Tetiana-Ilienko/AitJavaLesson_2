@@ -1,6 +1,7 @@
 package HomeWork_36;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -35,7 +36,7 @@ public class Main {
     public static List<Integer> returnListWithAutNumber(List<Integer> list, int number){
         List<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) < number){
+            if (list.get(i) <= number){
                 resultList.add(list.get(i));
 
             }
@@ -43,6 +44,17 @@ public class Main {
         }
 
         return resultList;
+    }
+
+    public static List<Integer> returnListWithAutNumberIterator(List<Integer> list, int number) {
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()){
+            if (iterator.next() >= number){
+                iterator.remove();
+
+            }
+        }
+            return list;
     }
 
 
@@ -62,13 +74,15 @@ public class Main {
         arrayList2.add(88);
         arrayList2.add(11);
         arrayList2.add(8);
-        arrayList2.add(8);
+
 
         System.out.println(arrayList2);
 
         System.out.println(compareLists(arrayList1, arrayList2));
 
         System.out.println(returnListWithAutNumber(arrayList2,9 ));
+
+        System.out.println(returnListWithAutNumberIterator(arrayList1, 8));
 
 
     }

@@ -106,12 +106,19 @@ public class MainCollections {
             }
             //  итератор
         /*
-        Iterator - один их методов интерфейса Collection.  Щт возвращает объеккт,\
+        Iterator - один их методов интерфейса Collection.  Он возвращает объект,\
         реализующий интерфейс Iterator
 
         методы интерфейса Итератор
-        E next() -  возвращает следующий элемент коллекции
-        boolean hasNext() -  проверяет не достигнут ли конец колекции
+        E next() -  возвращает следующий элемент коллекции, если он работает в цикле -
+        он поочереди выдает все элементы цикла.
+
+        while (iterator.hasNext()){ // пример перебора цикла
+            if (iterator.next() <= number){ // с условием
+
+        boolean hasNext() -  проверяет не достигнут ли конец коллекции, используют его как условие
+        в цикле while
+
         remove() - удаляет текущий элемент, полученный  последним вызовом next()
 
          */
@@ -145,6 +152,32 @@ public class MainCollections {
              ourIterator1.remove();}
         }
         System.out.println(names); // [Bil, Bob, Jack, John]
+
+//        --------------------------------------
+//        пример работы с методами итератора
+        List<String> numbers1 = new ArrayList<>();
+        numbers1.add("One");
+        numbers1.add("Two");
+        numbers1.add("Three");
+         Iterator<String> iterator = numbers1.iterator();
+         while (iterator.hasNext()){ // обходит список
+             String nextStr = iterator.next(); // присваивает следующий элемент
+             System.out.println(nextStr);
+             if (nextStr.equals("Two")){
+                 iterator.remove();
+             }
+
+         }
+//         *********************************
+//        forEach метод
+
+        numbers1.forEach(number -> System.out.println(number)); // проходим по массиву
+         /*
+         One
+         Two
+         Three
+          */
+
 
 
 
