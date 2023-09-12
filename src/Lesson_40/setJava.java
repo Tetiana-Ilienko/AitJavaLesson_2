@@ -1,4 +1,4 @@
-package Practice_37;
+package Lesson_40;
 
 import java.util.*;
 

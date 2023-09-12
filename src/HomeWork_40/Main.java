@@ -17,6 +17,10 @@ public class Main {
         stringList.add("John");
         stringList.add("Ann");
         stringList.add("Mary");
+        stringList.add("Mary");
+
+
+
         System.out.println(stringList); // [Jack, Mary, John, John, Ann, Mary]
 
         System.out.println(listOfNames(stringList)); // [Jack, Mary, John, Ann] //  возвращает в том же порядке,
@@ -25,9 +29,10 @@ public class Main {
 
     }
 
-    public static LinkedHashSet<String> listOfNames(List<String> obj){
+    public static List<String> listOfNames(List<String> obj){
         Set<String> linkedNameSet = new LinkedHashSet<>(obj);
-        return (LinkedHashSet<String>) linkedNameSet;
+        ArrayList<String> strings = new ArrayList<>(linkedNameSet);
+        return strings;
 
     }
 
