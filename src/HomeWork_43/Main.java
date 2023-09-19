@@ -38,6 +38,24 @@ public class Main {
         }
         return resultMap;
     }
+    /*
+    Второй вариант // записть одной строкой
+    public Map<String, Boolean> findTrueFalse1(String[] strings) {
+        Map<String, Boolean> map = new HashMap<>();
+
+        for (String string : strings) {
+            map.put(string, map.containsKey(string));// добавляем в мапу, ключ string, в значение записыввем
+             результат работы метода  containsKey(string)
+
+        }
+
+        return map;
+    }
+
+     */
+
+
+
     public static void main(String[] args) {
       String[] arrays = {"Jack", "Bill","Ann", "Jack","john","Ann"};
 

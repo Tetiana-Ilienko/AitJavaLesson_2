@@ -13,7 +13,7 @@ class MainTest {
 
     @Test
     public void testTrueFalseMap_HasDuplicates(){
-        String[] actual = {"Jack", "Bill","Ann", "Jack","John","Ann"};
+        String[] actual = new String[]{"Jack", "Bill","Ann", "Jack","John","Ann"};
         Map<String,Boolean> expected = new HashMap<>();
         expected.put("Ann", true);
         expected.put("Bill", false);
@@ -24,12 +24,21 @@ class MainTest {
 
     @Test
     public void testTrueFalseMap_NonDuplicates(){
-        String[] actual = {"Jack", "Bill","Ann","John"};
+        String[] actual = new String[] {"Jack", "Bill","Ann","John"};
         Map<String,Boolean> expected = new HashMap<>();
         expected.put("Ann", false);
         expected.put("Bill", false);
         expected.put("John", false);
         expected.put("Jack", false);
+        assertEquals(expected,trueFalseMap(actual));
+    }
+
+    @Test
+    public void testTrueFalseMap_AllSame (){
+        String[] actual = new String[] {"Jack", "Jack","Jack","Jack"};
+        Map<String,Boolean> expected = new HashMap<>();
+        expected.put("Jack", true);
+
         assertEquals(expected,trueFalseMap(actual));
     }
 
