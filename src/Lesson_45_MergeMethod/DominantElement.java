@@ -1,4 +1,4 @@
-package Lesson_45;
+package Lesson_45_MergeMethod;
 
 import java.util.HashMap;
 import java.util.Map;

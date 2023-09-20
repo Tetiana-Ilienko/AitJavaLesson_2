@@ -1,4 +1,4 @@
-package Lesson_37;
+package Lesson_37_LinkenList;
 
 import java.util.LinkedList;
 import java.util.List;

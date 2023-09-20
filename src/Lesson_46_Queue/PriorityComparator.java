@@ -1,4 +1,4 @@
-package Lesson_46;
+package Lesson_46_Queue;
 
 import java.util.Comparator;
 

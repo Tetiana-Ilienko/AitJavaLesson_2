@@ -1,4 +1,4 @@
-package Lesson_42;
+package Lesson_42_Map;
 
 import java.util.*;
 

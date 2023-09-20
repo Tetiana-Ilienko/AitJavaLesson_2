@@ -1,4 +1,4 @@
-package Lesson_43;
+package Lesson_43_TreeMap;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Lesson_43.PracticMain.plusElement;
+import static Lesson_43_TreeMap.PracticMain.plusElement;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PracticMainTest {

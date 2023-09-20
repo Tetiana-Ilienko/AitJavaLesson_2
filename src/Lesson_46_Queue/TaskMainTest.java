@@ -1,4 +1,4 @@
-package Lesson_46;
+package Lesson_46_Queue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +24,12 @@ class TaskMainTest {
     @Test
     public void testAreBracketsCorrect_false() {
         char[] actual = new char[]{'{', '(', '[', ')'};
+        assertEquals(false, m.areBracketsCorrect(actual));
+    }
+
+    @Test
+    public void testAreBracketsCorrect_openBracketsfalse () {
+        char[] actual = new char[]{'{', '(', '[', '{'};
         assertEquals(false, m.areBracketsCorrect(actual));
     }
 

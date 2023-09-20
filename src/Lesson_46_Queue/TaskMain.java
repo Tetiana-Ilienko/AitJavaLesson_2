@@ -1,4 +1,4 @@
-package Lesson_46;
+package Lesson_46_Queue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -20,7 +20,7 @@ public class TaskMain {
         TaskMain m = new TaskMain();
 
 
-        char[] chars = new char[]{'{', '}', '(', '[', ']', ')'};
+        char[] chars = new char[]{'{', '('};
         char[] chars1 = new char[]{'{', '(', '[', ']', ')'};
         char[] chars2 = new char[]{'{', '(', '[', ')'};
         char[] chars3 = new char[]{'{', '}', '(', '[', ')', '}'};
@@ -56,8 +56,11 @@ public class TaskMain {
                     return false;
                 }
             }
+            else {
+                return false;
+            }
         }
-        return true;
+        return deque.size()==0;
     }
 }
 
