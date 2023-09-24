@@ -1,4 +1,4 @@
-package Lesson_47_Exceptions;
+package Lesson_47_Stack;
 
 import java.util.Stack;
 

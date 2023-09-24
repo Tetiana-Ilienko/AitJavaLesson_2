@@ -1,4 +1,4 @@
-package Proect_Lesson_26;
+package Proect_Lesson_26_PizzaFactory;
 
 public class Mozarella extends Pizza{
     private static String TYPE = "Pizza Mozarella"; // объявляем константу

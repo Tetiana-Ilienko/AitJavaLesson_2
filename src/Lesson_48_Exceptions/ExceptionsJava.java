@@ -1,5 +1,6 @@
-package Lesson_47_Exceptions;
+package Lesson_48_Exceptions;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 // Exceptions (исключения)
@@ -62,16 +63,38 @@ public class ExceptionsJava {
 
         3. finally - этот блок будет выполняться всегда независимо от того, произошло исключение или нет.
 
-        4. throw - используется для того, чтобы бросить исключение
+          try{
+               блок кода
+               }
+             catch{
+             обработка  исключения
+             }
+             finally {
+              код, который должен выполниться в любом случае}
 
-        5. throws - используется в сигнатуре метода и указывает на то, что метод может бросить исключение
+         finally  - не существует без блока try.
+                  - не является обязательным.
+                  - если исключение не происходи, то  finally выполняется вслед за блоком try. если происходить
+                    то после блока catch.
+                  - код в finally выполняется, даже если в блоке try содержатся команды return, break, continue.
+                  - бллоки try - finally  могут существовать без блока catch
+
+
+
+        4. throw - используется для того, чтобы бросить исключение (Написать самим исключение в нужной нам ситуации)
+
+                   throw new exception_class ("message")
+
+        5. throws - используется в сигнатуре метода и указывает на то, что метод может бросить исключение.
+        Прописываем в сигнатуре метода, а при вызове метода прописываем блок try
+        throws - обычно работает с проверяемыми во время компиляции исключениями
 
 
 
      */
 
-    public static void main(String[] args) {
-        int num1,num2;
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        int num1, num2;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -84,7 +107,7 @@ public class ExceptionsJava {
 
 //        int divide = num1/num2;
 //        System.out.println("num1/num2 = " + divide );
-        /*
+        /**
           Enter first number
           5
           Enter second number
@@ -95,15 +118,16 @@ public class ExceptionsJava {
 
 //        чтобы программа не выдавала исключения, в подозрительной части кода пишем следующе
 
-        try {  int divide = num1/num2;
-            System.out.println("num1/num2 = " + divide );
-        } catch ( ArithmeticException exception){
+        try {
+            int divide = num1 / num2;
+            System.out.println("num1/num2 = " + divide);
+        } catch (ArithmeticException exception) {
             System.out.println("Division by 0 not allowed!");
             System.out.println(exception.getMessage());
         }
         System.out.println("After exception occurred");
 
-        /*
+        /**
         Enter first number
         5
         Enter second number
@@ -124,15 +148,12 @@ public class ExceptionsJava {
             int divide = num1 / num2;
             System.out.println("num1/num2 = " + divide);
             System.out.println("End of try blockk");
-        }
-        catch(ArithmeticException e) {
+        } catch (ArithmeticException e) {
             System.out.println(e.getMessage()); // num1/num2 = 0
 
-        }
-        catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(e.getMessage()); // Index 10 out of bounds for length 3
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -146,10 +167,110 @@ public class ExceptionsJava {
 
          */
 
+//        ********************   finally   **************************
+        try {
+            int a = 100 / 1;
+            System.out.println(a);
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("This is finally block");
+        }
+        System.out.println("we are out of the try-catch-finally");
+
+//        ***************** пример работы метода example    ************************************
+        for (int i = 0; i < 3; i++) {
+            example(i);
+            System.out.println();
+
+        }
+//       ***************** пример работы метода checkCandidates    ************************************
+        checkCandidates(9,30);
+
+//        ***************** пример работы метода  exampleThrows    ************************************
+        try {
+            exampleThrows();
+        } catch (ArithmeticException e){
+            System.out.println(e.getMessage());
+        }catch (NullPointerException e){
+            System.out.println(e.getMessage());
+        }
+
+        exampleThrows1(1); //  можно обработать exception  здесь, а можно пробросить на самый верх
+        // в метод main
+        //public static void main(String[] args) throws IOException, ClassNotFoundException {
+        //  это способ не обрабатывать  ошибку, это способ подходить только для проверяемых ошибок
 
 
+    }
 
+    //    ********************* finally  *****************************
+    public static void example(int num) {
+        int t;
+        int[] ints = new int[2];
 
+        System.out.println("recieved" + num);
+        try {
+            switch (num) {
+                case 0:
+                    t = 20 / 0; // деление на ноль
+                    break;
+                case 1:
+                    ints[10] = 100; // неправильный индекс
+                    break;
+                case 2:
+                    return; // возврат из блока try
+            }
+        } catch (ArithmeticException e) {
+            System.out.println("Do not divide by zero!");
+            return;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("No such index is found!");
+
+        } finally {
+            System.out.println("Finally always executed!");
+        }
+
+        /********** работа метода ***************
+        recieved0
+        Do not divide by zero!
+        Finally always executed!
+
+        recieved1
+        No such index is found!
+        Finally always executed!
+
+        recieved2
+        Finally always executed!
+         */
+    }
+
+    //        ************** throw ******************
+    public static void checkCandidates(int age, int weight) {
+        if (age < 10 && weight < 40) {
+            throw new ArithmeticException(" Sorry you are not for section ");
+        } else {
+            System.out.println("Welcome!");
+        }
+        /********* работа метода ***************
+        Exception in thread "main" java.lang.ArithmeticException:  Sorry you are not for section
+	at Lesson_48_Exceptions.ExceptionsJava.checkCandidates(ExceptionsJava.java:233)
+	at Lesson_48_Exceptions.ExceptionsJava.main(ExceptionsJava.java:185)
+         */
+    }
+    //        ************** throws ******************
+    public static void  exampleThrows()throws ArithmeticException, NullPointerException{
+        System.out.println(2/0);
+
+        String nullStr = null;
+        nullStr.length();
+    }
+
+    public static void exampleThrows1(int number) throws IOException, ClassNotFoundException{
+        if(number ==1)
+            throw new IOException("IOException occurred"); //  ошибки, которые должны обрабатываться во время компеляции
+        else
+            throw new ClassNotFoundException("Class not found");
     }
 
 }

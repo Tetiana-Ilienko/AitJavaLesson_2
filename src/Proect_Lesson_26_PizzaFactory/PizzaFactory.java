@@ -1,4 +1,4 @@
-package Proect_Lesson_26;
+package Proect_Lesson_26_PizzaFactory;
 
 public class PizzaFactory {
 
@@ -8,7 +8,7 @@ public class PizzaFactory {
             case "1": return  new Salami();
             case "2": return  new Mozarella();
             case "3": return  new Hawaii();
-            default: return null;
+            default: return null; // иначе возвращаем null
         }
     }
 }

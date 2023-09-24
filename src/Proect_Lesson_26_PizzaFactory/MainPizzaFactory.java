@@ -1,4 +1,4 @@
-package Proect_Lesson_26;
+package Proect_Lesson_26_PizzaFactory;
 
 import java.util.Scanner;
 
